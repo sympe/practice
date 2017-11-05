@@ -1,7 +1,8 @@
+#include <vector>
 #include <cstdio>
 using namespace std;
 
-int a[20];
+vector<int> a(20);
 int n, k;
 
 bool dfs(int i, int sum) {
@@ -20,6 +21,14 @@ bool dfs(int i, int sum) {
   return false;
 }
 
+void solve() {
+  if (dfs(0, 0)) {
+    printf("Yes\n");
+  } else {
+    printf("No\n");
+  }
+}
+
 int main ()
 {
   int i;
@@ -31,11 +40,7 @@ int main ()
 
   scanf("%d", &k);
 
-  if (dfs(0, 0)) {
-    printf("Yes\n");
-  } else {
-    printf("No\n");
-  }
+  solve();
 
   return 0;
 }
