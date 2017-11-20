@@ -1,72 +1,40 @@
-#include <algorithm>
 #include <cstdio>
-#include <vector>
+#include <math.h>
+#include <utility>
+
 using namespace std;
-
-int n;
-int x = 0;
-vector<int> A(500000);
-
-void merge(int left, int mid, int right) {
-  int n1 = mid - left;
-  int n2 = right - mid;
-
-  vector<int> L(n);
-  vector<int> R(n);
-
-  for (int i = 0; i < n1; i++) {
-    L[i] = A[left + i];
-  }
-
-  for (int i = 0; i < n2; i++) {
-    R[i] = A[mid + i];
-  }
-
-  L[n1] = 1000000001;
-  R[n2] = 1000000001;
-  int i = 0;
-  int j = 0;
-
-  for (int k = left; k < right; k++) {
-    x++;
-    if (L[i] <= R[j]) {
-      A[k] = L[i];
-      i++;
-    }
-    else {
-      A[k] = R[j];
-      j++;
-    }
-  }
-}
-
-void mergeSort (int left, int right) {
-  int mid;
-  if (left + 1 < right){
-    mid = (left + right) / 2;
-    mergeSort(left, mid);
-    mergeSort(mid, right);
-    merge(left, mid, right);
-  }
-}
 
 int main ()
 {
-  scanf("%d", &n);
-  for (int i = 0; i < n; i++) {
-    scanf("%d", &A[i]);
-  }
+  int H, W;
+  int count = 0;
+  pair<int, int> data[5000];
 
-  mergeSort(0, n);
-
-  for (int i = 0; i < n; i++) {
-    if (i == n-1) {
-      printf("%d", A[i]);
-    } else {
-      printf("%d ", A[i]);
+  while (1) {
+    scanf("%d", &H);
+    scanf("%d", &W);
+    if (H == 0 && W == 0) {
+      break;
     }
+    data[count].first = H;
+    data[count].second = W;
+    count++;
+
   }
-  printf("\n%d\n", x);
+
+  for (int i = 0; i < count; i ++) {
+    for (int j = 0; j < data[i].first; j++) {
+      for (int k = 0; k < data[i].second; k++) {
+        if (j == 0 || j == data[i].first - 1 || k == 0 || k == data[i].second - 1) {
+          printf("#");
+        } else {
+          printf(".");
+        }
+      }
+      printf("\n");
+    }
+    printf("\n");
+  }
 
   return 0;
 }
