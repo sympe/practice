@@ -1,26 +1,31 @@
-#include <algorithm>
 #include <cstdio>
-#include <vector>
+#include <math.h>
+#include <utility>
+
 using namespace std;
 
 int main ()
 {
-  int n, x;
-  int min, max;
-  int sum = 0;
-  vector<int> data(10001);
+  int n;
 
   scanf("%d", &n);
-  for (int i = 0; i < n; i++) {
-    scanf("%d", &x);
-    data[i] = x;
-    sum += x;
+
+  for (int i = 1; i <= n; i++) {
+      int x = i;
+      if ( x % 3 == 0){
+        printf(" %d", i);
+        continue;
+      }
+
+      while (x > 0) {
+        if ( x % 10 == 3 ){
+          printf(" %d", i);
+          break;
+        }
+        x /= 10;
+      }
   }
-
-  min = *min_element(data.begin(), data.begin() + n);
-  max = *max_element(data.begin(), data.begin() + n);
-
-  printf("%d %d %d\n", min, max, sum);
+  printf("\n");
 
   return 0;
 }
