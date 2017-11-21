@@ -1,34 +1,39 @@
-#include <algorithm>
 #include <cstdio>
-#include <vector>
+#include <math.h>
+#include <utility>
+
 using namespace std;
 
 int main ()
 {
-  int x, y;
-  char op;
+  int H, W;
   int count = 0;
-  vector<int> data(10000);
+  pair<int, int> data[5000];
+
   while (1) {
-    scanf("%d", &x);
-    scanf(" %c", &op);
-    scanf("%d", &y);
-    if (op == '?') {
+    scanf("%d", &H);
+    scanf("%d", &W);
+    if (H == 0 && W == 0) {
       break;
-    } else if (op == '+') {
-      data[count] = x + y;
-    } else if (op == '-') {
-      data[count] = x - y;
-    } else if (op == '*') {
-      data[count] = x * y;
-    } else if (op == '/') {
-      data[count] = x / y;
     }
+    data[count].first = H;
+    data[count].second = W;
     count++;
+
   }
 
-  for (int i = 0; i < count; i++) {
-    printf("%d\n", data[i]);
+  for (int i = 0; i < count; i ++) {
+    for (int j = 0; j < data[i].first; j++) {
+      for (int k = 0; k < data[i].second; k++) {
+        if ((j + k) % 2 == 0) {
+          printf("#");
+        } else {
+          printf(".");
+        }
+      }
+      printf("\n");
+    }
+    printf("\n");
   }
 
   return 0;
