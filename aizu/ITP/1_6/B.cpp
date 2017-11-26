@@ -1,39 +1,39 @@
 #include <cstdio>
-#include <math.h>
 #include <utility>
+#include <vector>
 
 using namespace std;
 
 int main ()
 {
-  int H, W;
-  int count = 0;
-  pair<int, int> data[5000];
+  int n, x;
+  char suit;
+  vector<int> H(13);
+  vector<int> S(13);
+  vector<int> C(13);
+  vector<int> D(13);
 
-  while (1) {
-    scanf("%d", &H);
-    scanf("%d", &W);
-    if (H == 0 && W == 0) {
-      break;
+  scanf("%d", &n);
+  for (int i = 0; i < n; i++) {
+    scanf("%c", &suit);
+    scanf("%d", &x);
+    if (suit == 'H') {
+      H[x - 1] = x;
+    } else if (suit == 'S') {
+      S[x - 1] = x;
+    } else if (suit == 'C') {
+      C[x - 1] = x;
+    } else if (suit == 'D') {
+      D[x - 1] = x;
     }
-    data[count].first = H;
-    data[count].second = W;
-    count++;
-
   }
 
-  for (int i = 0; i < count; i ++) {
-    for (int j = 0; j < data[i].first; j++) {
-      for (int k = 0; k < data[i].second; k++) {
-        if (j == 0 || j == data[i].first - 1 || k == 0 || k == data[i].second - 1) {
-          printf("#");
-        } else {
-          printf(".");
-        }
-      }
-      printf("\n");
+  for (int i = 0; i < 13; i++) {
+    if (i == n - 1) {
+      printf("%d\n", data[i]);
+    } else {
+      printf("%d ", data[i]);
     }
-    printf("\n");
   }
 
   return 0;
