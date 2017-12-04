@@ -6,35 +6,27 @@ using namespace std;
 
 int main ()
 {
-  int H, W;
-  int count = 0;
-  pair<int, int> data[5000];
+  int n;
+  vector<int, int> a
 
-  while (1) {
-    scanf("%d", &H);
-    scanf("%d", &W);
-    if (H == 0 && W == 0) {
-      break;
-    }
-    data[count].first = H;
-    data[count].second = W;
-    count++;
+  scanf("%d", &n);
 
-  }
-
-  for (int i = 0; i < count; i ++) {
-    for (int j = 0; j < data[i].first; j++) {
-      for (int k = 0; k < data[i].second; k++) {
-        if ((j + k) % 2 == 0) {
-          printf("#");
-        } else {
-          printf(".");
-        }
+  for (int i = 1; i <= n; i++) {
+      int x = i;
+      if ( x % 3 == 0){
+        printf(" %d", i);
+        continue;
       }
-      printf("\n");
-    }
-    printf("\n");
+
+      while (x > 0) {
+        if ( x % 10 == 3 ){
+          printf(" %d", i);
+          break;
+        }
+        x /= 10;
+      }
   }
+  printf("\n");
 
   return 0;
 }
