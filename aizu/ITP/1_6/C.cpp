@@ -7,24 +7,25 @@ using namespace std;
 int main ()
 {
   int n;
-  vector<int, int> a
+  int first[3][10];
+  int second[3][10];
+  int third[3][10];
+  int fourth[3][10];
+  int b, f, r, v;
 
   scanf("%d", &n);
 
   for (int i = 1; i <= n; i++) {
-      int x = i;
-      if ( x % 3 == 0){
-        printf(" %d", i);
-        continue;
-      }
-
-      while (x > 0) {
-        if ( x % 10 == 3 ){
-          printf(" %d", i);
-          break;
-        }
-        x /= 10;
-      }
+    scanf("%d %d %d %d", &b, &f, &r, &v);
+    if (b == 1){
+      first[f - 1][r - 1] = v;
+    } else if (b == 2) {
+      second[f - 1][r - 1] = v;
+    } else if (b == 3) {
+      third[f - 1][r - 1] = v;
+    } else if (b == 4) {
+      fourth[f - 1][r - 1] = v;
+    }
   }
   printf("\n");
 
