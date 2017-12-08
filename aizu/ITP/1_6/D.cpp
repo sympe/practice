@@ -6,26 +6,34 @@ using namespace std;
 
 int main ()
 {
-  int n;
+  int n, m;
+  int b[100];
+  int c[100];
 
-  scanf("%d", &n);
+  scanf("%d %d", &n, &m);
+  int A[100][100];
 
-  for (int i = 1; i <= n; i++) {
-      int x = i;
-      if ( x % 3 == 0){
-        printf(" %d", i);
-        continue;
-      }
 
-      while (x > 0) {
-        if ( x % 10 == 3 ){
-          printf(" %d", i);
-          break;
-        }
-        x /= 10;
-      }
+  for (int i = 0; i < n; i++) {
+    for (int j = 0; j < m; j++) {
+      scanf("%d", &A[i][j]);
+    }
   }
-  printf("\n");
+
+  for (int i = 0; i < m; i++) {
+    scanf("%d", &b[i]);
+  }
+
+  for (int i = 0; i < n; i++) {
+    c[i] = 0;
+    for (int j = 0; j < m; j++) {
+      c[i] += A[i][j] * b[j];
+    }
+  }
+
+  for (int i = 0; i < n; i++) {
+    printf("%d\n", c[i]);
+  }
 
   return 0;
 }
