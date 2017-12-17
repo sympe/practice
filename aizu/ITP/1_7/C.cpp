@@ -8,6 +8,7 @@ int main ()
 {
   int r, c;
   int A[100][100];
+  int x;
   scanf("%d %d", &r, &c);
 
   for (int i = 0; i < r; i++) {
@@ -16,25 +17,20 @@ int main ()
     }
   }
 
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 10; j++) {
-      printf(" %d", first[i][j]);
+  for (int i = 0; i <= r; i++) {
+    x = 0;
+    for (int j = 0; j <= c; j++) {
+      x += A[i][j];
+      if (i == r) {
+        printf("%d ", 1);
+      } else {
+        if (j == c) {
+          printf("%d\n", x);
+        } else {
+          printf("%d ", A[i][j]);
+        }
+      }
     }
-    printf("\n");
-  }
-
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 10; j++) {
-      printf(" %d", first[i][j]);
-    }
-    printf("\n");
-  }
-
-  for (int i = 0; i < 3; i++) {
-    for (int j = 0; j < 10; j++) {
-      printf(" %d", first[i][j]);
-    }
-    printf("\n");
   }
 
   return 0;
