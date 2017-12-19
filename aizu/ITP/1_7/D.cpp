@@ -6,13 +6,12 @@ using namespace std;
 
 int main ()
 {
-  int n, m;
-  int b[100];
-  int c[100];
+  int n, m, l;
 
-  scanf("%d %d", &n, &m);
+  scanf("%d %d %d", &n, &m, &l);
   int A[100][100];
-
+  int B[100][100];
+  int C[100][100];
 
   for (int i = 0; i < n; i++) {
     for (int j = 0; j < m; j++) {
@@ -21,18 +20,15 @@ int main ()
   }
 
   for (int i = 0; i < m; i++) {
-    scanf("%d", &b[i]);
-  }
-
-  for (int i = 0; i < n; i++) {
-    c[i] = 0;
-    for (int j = 0; j < m; j++) {
-      c[i] += A[i][j] * b[j];
+    for (int j = 0; j < l; j++) {
+      scanf("%d", &B[i][j]);
     }
   }
 
   for (int i = 0; i < n; i++) {
-    printf("%d\n", c[i]);
+    for (int j = 0; j < l; j++) {
+      
+    }
   }
 
   return 0;
