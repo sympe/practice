@@ -6,34 +6,29 @@ using namespace std;
 
 int main ()
 {
-  int n, x;
-  char suit;
-  vector<int> H(13);
-  vector<int> S(13);
-  vector<int> C(13);
-  vector<int> D(13);
+  int count = 0;
+  double sum;
+  double a;
+  vector<double> x(100);
 
-  scanf("%d", &n);
-  for (int i = 0; i < n; i++) {
-    scanf("%c", &suit);
-    scanf("%d", &x);
-    if (suit == 'H') {
-      H[x - 1] = x;
-    } else if (suit == 'S') {
-      S[x - 1] = x;
-    } else if (suit == 'C') {
-      C[x - 1] = x;
-    } else if (suit == 'D') {
-      D[x - 1] = x;
+  while (1) {
+    scanf("%lf", &x[count]);
+    if (x[count] == 0) {
+      break;
     }
+    count++;
   }
 
-  for (int i = 0; i < 13; i++) {
-    if (i == n - 1) {
-      printf("%d\n", data[i]);
-    } else {
-      printf("%d ", data[i]);
+  for (int i = 0; i < count; i++) {
+    sum = 0;
+    a = x[i];
+    printf("%f\n", a);
+    while (a > 0) {
+      printf("%f\n", sum);
+      sum += (int)a % 10;
+      a /= 10;
     }
+    // printf("%d\n", sum);
   }
 
   return 0;
