@@ -6,13 +6,16 @@ using namespace std;
 
 int main ()
 {
+  ios::sync_with_stdio(false);
+  string str;
   int count = 0;
-  double sum;
-  double a;
-  vector<double> x(100);
+  int sum;
+  int a;
+  vector<string> strList;
 
   while (1) {
-    scanf("%lf", &x[count]);
+    cin << str;
+    
     if (x[count] == 0) {
       break;
     }
@@ -25,7 +28,7 @@ int main ()
     printf("%f\n", a);
     while (a > 0) {
       printf("%f\n", sum);
-      sum += (int)a % 10;
+      sum += a % 10;
       a /= 10;
     }
     // printf("%d\n", sum);
