@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <utility>
 #include <vector>
+#include <iostream>
 
 using namespace std;
 
@@ -14,24 +15,18 @@ int main ()
   vector<string> strList;
 
   while (1) {
-    cin << str;
-    
-    if (x[count] == 0) {
+    cin >> str;
+
+    if (str == "0") {
       break;
     }
+
+    strList.push_back(str);
     count++;
   }
 
   for (int i = 0; i < count; i++) {
-    sum = 0;
-    a = x[i];
-    printf("%f\n", a);
-    while (a > 0) {
-      printf("%f\n", sum);
-      sum += a % 10;
-      a /= 10;
-    }
-    // printf("%d\n", sum);
+    cout << strList[i] << "\n";
   }
 
   return 0;
