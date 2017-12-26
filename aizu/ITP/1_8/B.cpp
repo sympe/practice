@@ -12,6 +12,7 @@ int main ()
   int count = 0;
   int sum;
   int a;
+  int offset;
   vector<string> strList;
 
   while (1) {
@@ -26,6 +27,12 @@ int main ()
   }
 
   for (int i = 0; i < count; i++) {
+    offset = 0;
+    while (offset < strlen(strList[i])) {
+      strList[i].substr(offset, 5);
+      offset += 5;
+    }
+
     cout << strList[i] << "\n";
   }
 
