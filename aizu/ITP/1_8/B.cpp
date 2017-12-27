@@ -1,6 +1,7 @@
 #include <cstdio>
 #include <utility>
 #include <vector>
+#include <string>
 #include <iostream>
 
 using namespace std;
@@ -13,6 +14,7 @@ int main ()
   int sum;
   int a;
   int offset;
+  string splitString;
   vector<string> strList;
 
   while (1) {
@@ -28,12 +30,17 @@ int main ()
 
   for (int i = 0; i < count; i++) {
     offset = 0;
-    while (offset < strlen(strList[i])) {
-      strList[i].substr(offset, 5);
-      offset += 5;
+    sum = 0;
+    while (offset < strList[i].length()) {
+      splitString = strList[i].substr(offset, 8);
+      a = stoi(splitString);
+      while (a > 0) {
+        sum += a % 10;
+        a /= 10;
+      }
+      offset += 8;
     }
-
-    cout << strList[i] << "\n";
+    cout << sum << "\n";
   }
 
   return 0;
